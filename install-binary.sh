@@ -36,6 +36,7 @@ initArch() {
   x86_64) ARCH="amd64" ;;
   i686) ARCH="386" ;;
   i386) ARCH="386" ;;
+  loongarch64) ARCH="loongarch64" ;;
   esac
 }
 
@@ -49,13 +50,14 @@ initOS() {
   # Minimalist GNU for Windows
   mingw*) OS='windows' ;;
   darwin) OS='macos' ;;
+  linux) OS='linux' ;;
   esac
 }
 
 # verifySupported checks that the os/arch combination is supported for
 # binary builds.
 verifySupported() {
-  supported="linux-amd64\nfreebsd-amd64\nmacos-amd64\nwindows-amd64"
+  supported="linux-amd64\nfreebsd-amd64\nmacos-amd64\nwindows-amd64\nlinux-loongarch64"
   if ! echo "${supported}" | grep -q "${OS}-${ARCH}"; then
     echo "No prebuild binary for ${OS}-${ARCH}."
     exit 1

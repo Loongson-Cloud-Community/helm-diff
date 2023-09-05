@@ -17,7 +17,7 @@
 # Copies the current versions of apimachinery and client-go out of the
 # main kubernetes repo.  These repos are currently out of sync and not
 # versioned.
-set -euo pipefail
+set -exuo pipefail
 
 
 rm -rf ./vendor/k8s.io/{kube-aggregator,apiserver,apimachinery,client-go}

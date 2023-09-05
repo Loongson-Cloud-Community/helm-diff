@@ -51,9 +51,9 @@ bootstrap:
 .PHONY: docker-run-release
 docker-run-release: export pkg=/go/src/github.com/databus23/helm-diff
 docker-run-release:
-	git checkout master
-	git push
-	docker run -it --rm -e GITHUB_TOKEN -v $(shell pwd):$(pkg) -w $(pkg) golang:1.13.3 make bootstrap release
+	git checkout 3.1.3
+	#git push
+	docker run -it --rm -e GITHUB_TOKEN -v $(shell pwd):$(pkg) -w $(pkg) cr.loongnix.cn/library/golang:1.19 make bootstrap release
 
 .PHONY: dist
 dist: export COPYFILE_DISABLE=1 #teach OSX tar to not put ._* files in tar archive
